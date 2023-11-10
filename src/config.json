@@ -1,0 +1,13 @@
+{
+  "components": [
+      {
+          "name": "dht11_sensor",
+          "type": "sensor",
+          "model": "nyu:dht11:linux",
+          "attributes": {
+              "pin": 4
+          },
+          "depends_on": []
+      }
+  ]
+}

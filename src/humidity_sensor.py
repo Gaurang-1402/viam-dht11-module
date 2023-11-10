@@ -12,7 +12,7 @@ import RPi.GPIO as GPIO
 # Load GPIO pin number from config.json
 with open('config.json', 'r') as config_file:
     config = json.load(config_file)
-    DHT_PIN = config['dht_sensor_pin']  # Update to the pin from config.json
+    DHT_PIN = config['components'][0]['attributes']['pin'] 
 
 # Initialize GPIO
 GPIO.setwarnings(False)
@@ -24,7 +24,7 @@ sensor_instance = dht11.DHT11(pin=DHT_PIN)
 
 class MySensor(Sensor):
     # Define the model of the sensor
-    MODEL: ClassVar[Model] = Model(ModelFamily("nyu", "gaurang-dht11-module"), "linux")
+    MODEL: ClassVar[Model] = Model(ModelFamily("nyu", "dht11-sensor"), "linux")
 
     # Initialize the sensor with the name provided in the configuration
     def __init__(self, name: str):
