@@ -1,11 +1,22 @@
-# Python example module
+# DHT11 Sensor Module for Raspberry Pi
 
-This is an example of a Viam module using our Python SDK. This repo shows how to:
+This repository contains a Viam-compatible module that enables a Raspberry Pi to read temperature and humidity data from a DHT11 sensor. This module integrates seamlessly with Viam's platform, making it easy to include environmental data in your robotics projects.
 
-- Use a Python virtualenv to install your module's dependencies on the robot
-- Write a simple module in Python
-- Use CI to automatically publish a new version when you create a Github release
+## Getting Started
 
+### Prerequisites
+
+- Raspberry Pi (with GPIO pins)
+- DHT11 Temperature and Humidity Sensor
+- Viam account and CLI tool installed
+
+### Installation
+
+1. Clone the repository to your Raspberry Pi:
+   ```shell
+   git clone https://github.com/Gaurang-1402/viam-dht11-module.git
+   cd viam-dht11-module
+```
 ## Contents
 
 - src: folder with python code
@@ -15,26 +26,13 @@ This is an example of a Viam module using our Python SDK. This repo shows how to
 - meta.json: Viam module configuration file
 - requirements.txt: dependencies. When run as a module, setup.sh installs these in the virtualenv
 
-## Forking this repo
+Install the Python dependencies:
+shell
+Copy code
+pip install -r requirements.txt
+Configuration
+Modify config.json to set the correct GPIO pin number and any other configurations for the DHT11 sensor.
 
-If you want to copy this repo and run it yourself, you'll need to make a few changes:
-
-### Create your own meta.json
-
-1. Get the Viam CLI (todo: link to docs)
-1. Rename the existing `meta.json` to `meta.json.old`
-1. Use `viam module create` to create a copy in your own account
-1. Copy all the fields except `name` from meta.json.old (your choice whether to make it public or private)
-
-### Change all references to the `viam` namespace
-
-You'll need to change all the namespace references in the codebase ('viam') to the namespace of your organization on Viam.
-
-1. You should already have done this in meta.json above
-1. In the "model" field in meta.json (on line 9 when this was written)
-1. In the ModelFamily in wifi_sensor.py, [around here](src/wifi_sensor.py#L13).
-
-### Set a secret if you want to use Github CI
-
-Instructions for setting the secret are [here](https://github.com/viamrobotics/upload-module#setting-up-auth).
-# viam-dht11-module
+Update meta.json with your module information and Viam account details.
+Usage
+After uploading, the module can be added to your Viam robot configuration. It will periodically read temperature and humidity data from the DHT11 sensor and update the readings on the Viam platform.
