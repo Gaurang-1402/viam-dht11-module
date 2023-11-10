@@ -16,7 +16,7 @@ This repository contains a Viam-compatible module that enables a Raspberry Pi to
    ```shell
    git clone https://github.com/Gaurang-1402/viam-dht11-module.git
    cd viam-dht11-module
-```
+   ```
 ## Contents
 
 - src: folder with python code
@@ -26,13 +26,14 @@ This repository contains a Viam-compatible module that enables a Raspberry Pi to
 - meta.json: Viam module configuration file
 - requirements.txt: dependencies. When run as a module, setup.sh installs these in the virtualenv
 
-Install the Python dependencies:
-shell
-Copy code
+## Install the Python dependencies:
+```shell
 pip install -r requirements.txt
-Configuration
+```
+## Configuration
 Modify config.json to set the correct GPIO pin number and any other configurations for the DHT11 sensor.
 
 Update meta.json with your module information and Viam account details.
-Usage
+
+## Usage
 After uploading, the module can be added to your Viam robot configuration. It will periodically read temperature and humidity data from the DHT11 sensor and update the readings on the Viam platform.
