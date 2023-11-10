@@ -1,12 +1,12 @@
 {
-  "name": "viam:python-example-module",
+  "module_id": "nyu:gaurang_dht11_module",
   "visibility": "public",
-  "url": "https://github.com/Fahmina/wifi-sensor",
-  "description": "This is a sensor that exposes wifi network, signal strength, and noise which is available via proc/net/wireless on linux",
+  "url": "https://github.com/Gaurang-1402/viam-dht11-module",
+  "description": "A sensor module for reading humidity and temperature values from a DHT11 sensor on Linux.",
   "models": [
     {
       "api": "rdk:component:sensor",
-      "model": "viam:wifi_sensor:linux"
+      "model": "nyu:dht11_sensor:linux"
     }
   ],
   "entrypoint": "exec.sh"

@@ -1,25 +1,21 @@
 import RPi.GPIO as GPIO
 import dht11
-import time
 
-# Initialize GPIO
+# initialize GPIO
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
 
-# Read data using pin 4
-myDHT = dht11.DHT11(pin=17)
+# read data using pin 14
+instance = dht11.DHT11(pin = 21)
+result = instance.read()
 
-try:
-    while True:
-        result = myDHT.read()
-        if result.is_valid():
-            print(f"Temperature: {result.temperature} C")
-            print(f"Humidity: {result.humidity} %")
-        else:
-            print(result)
-            print("Read error or no valid result.")
-        time.sleep(.2)  # Sleep for 2 seconds to prevent excessive reads
-except KeyboardInterrupt:
-    GPIO.cleanup()
-    print("Cleanup and exit.")
+print(result.is_valid())
+
+if result.is_valid():
+    print("Temperature: %-3.1f C" % result.temperature)
+    print("Humidity: %-3.1f %%" % result.humidity)
+else:
+    print("Error: %d" % result.error_code)
+    
+    
