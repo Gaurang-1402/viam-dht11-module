@@ -35,18 +35,17 @@ Modify config.json to set the correct GPIO pin number and any other configuratio
 
 ```json
    {
-       "components": [
-           {
-               "name": "ultrasonic_sensor",
-               "type": "sensor",
-               "model": "nyu:hcsr04:linux",
-               "attributes": {
-                   "trigger_pin": 23,
-                   "echo_pin": 24
-               },
-               "depends_on": []
-           }
-       ]
+     "components": [
+         {
+             "name": "dht11_sensor",
+             "type": "sensor",
+             "model": "nyu:dht11:linux",
+             "attributes": {
+                 "pin": 4
+             },
+             "depends_on": []
+         }
+     ]
    }
 
 ```
